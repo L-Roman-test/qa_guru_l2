@@ -1,6 +1,6 @@
 package tests;
 
-import Settings.BaseTest;
+import settings.BaseTest;
 import org.junit.jupiter.api.Test;
 import pages.AutomationPracticeForm;
 
