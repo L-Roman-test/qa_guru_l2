@@ -66,7 +66,7 @@ public class AutomationPracticeForm {
     }
 
     public void fillSubjects(String subjectValue) {
-        subjects.setValue(subjectValue);
+        subjects.setValue(subjectValue).pressEnter();
     }
 
     public void selectHobbies(List<String> hobbiesList) {

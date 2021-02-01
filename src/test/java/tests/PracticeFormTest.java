@@ -20,7 +20,7 @@ public class PracticeFormTest extends BaseTest {
         practiceForm.selectGender("Male");
         practiceForm.fillMobileNumber("7871234567");
         practiceForm.selectDateOfBirth("1930", "august", "25");
-        practiceForm.fillSubjects("agent 007");
+        practiceForm.fillSubjects("English");
         practiceForm.selectHobbies(Arrays.asList("Sports", "Music"));
         practiceForm.loadPictures();
         practiceForm.fillCurrentAddress("London Wellington Square, 25");
