@@ -32,7 +32,6 @@ public class AutomationPracticeForm {
     private final ElementsCollection
             hobbies = $$("#hobbiesWrapper label"),
             gender = $$("#genterWrapper label"),
-            birthDay = $$(".react-datepicker__day"),
             stateList = $$("#state [id^='react-select-3-option']"),
             cityList = $$("#city [id^='react-select-4-option']"),
             filledForm = $$(".table-responsive tbody tr");
@@ -64,7 +63,7 @@ public class AutomationPracticeForm {
         yearSelector.$$("option").findBy(text(year)).click();
         monthSelector.click();
         monthSelector.$$("option").findBy(text(month)).click();
-        birthDay.findBy(text(day)).click();
+        $(".react-datepicker__day--0" + day + ":not(.react-datepicker__day--outside-month)").click();
     }
 
     public void fillSubjects(String subjectValue) {
