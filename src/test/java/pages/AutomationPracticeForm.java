@@ -4,8 +4,8 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -104,85 +104,13 @@ public class AutomationPracticeForm {
         submitPopupHeader.shouldHave(text("Thanks for submitting the form"));
     }
 
-    public void checkStudentName(String label, String firstName, String lastName) {
-        filledForm
-                .findBy(text(label))
-                .$$("td")
-                .last()
-                .shouldHave(text(firstName + " " + lastName));
-    }
-
-    public void checkEmail(String label, String email) {
-        filledForm
-                .findBy(text(label))
-                .$$("td")
-                .last()
-                .shouldHave(text(email));
-    }
-
-    public void checkGender(String label, String male) {
-        filledForm
-                .findBy(text(label))
-                .$$("td")
-                .last()
-                .shouldHave(text(male));
-    }
-
-    public void checkNumber(String label, String number) {
-        filledForm
-                .findBy(text(label))
-                .$$("td")
-                .last()
-                .shouldHave(text(number));
-    }
-
-    public void checkDateOfBirth(String label, String day, String month, String year) {
-        filledForm
-                .findBy(text(label))
-                .$$("td")
-                .last()
-                .shouldHave(text(day + " " + month + "," + year));
-    }
-
-
-    public void checkSubjects(String label, String subject) {
-        filledForm
-                .findBy(text(label))
-                .$$("td")
-                .last()
-                .shouldHave(text(subject));
-    }
-
-    public void checkHobbies(String label, String sport, String music) {
-        filledForm
-                .findBy(text(label))
-                .$$("td")
-                .last()
-                .shouldHave(text(sport + ", " + music));
-    }
-
-    public void checkPicture(String label, String pictureName) {
-        filledForm
-                .findBy(text(label))
-                .$$("td")
-                .last()
-                .shouldHave(text(pictureName));
-    }
-
-
-    public void checkAddress(String label, String address) {
-        filledForm
-                .findBy(text(label))
-                .$$("td")
-                .last()
-                .shouldHave(text(address));
-    }
-
-    public void checkStateAndCity(String label, String State, String City) {
-        filledForm
-                .findBy(text(label))
-                .$$("td")
-                .last()
-                .shouldHave(text(State + " " + City));
+    public void checkRegisterForm(Map<String, String> registerFormData) {
+        for (Map.Entry<String, String> entry : registerFormData.entrySet()) {
+            filledForm
+                    .findBy(text(entry.getKey()))
+                    .$$("td")
+                    .last()
+                    .shouldHave(text(entry.getValue()));
+        }
     }
 }

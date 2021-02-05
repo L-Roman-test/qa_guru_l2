@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import pages.AutomationPracticeForm;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.page;
 
@@ -27,8 +29,11 @@ public class PracticeFormTest extends BaseTest {
     String state = "Uttar Pradesh";
     String city = "Agra";
 
+    Map<String, String> registerForm = new HashMap<>();
+
     @Test
     void studentRegistrationForm() {
+        fillMapForRegisterFormMap();
         practiceForm.openPage();
         practiceForm.checkForm();
         practiceForm.fillName(firstName, lastName);
@@ -45,15 +50,19 @@ public class PracticeFormTest extends BaseTest {
         practiceForm.clickOnSubmitButton();
         practiceForm.formSuccessfullyFilled();
 
-        practiceForm.checkStudentName("Name", firstName, lastName);
-        practiceForm.checkEmail("Email", email);
-        practiceForm.checkGender("Gender", genderMale);
-        practiceForm.checkNumber("Mobile", number);
-        practiceForm.checkDateOfBirth("Date of Birth", birthDay, birthMonth, birthYear);
-        practiceForm.checkSubjects("Subjects", subject);
-        practiceForm.checkHobbies("Hobbies", sports, music);
-        practiceForm.checkPicture("Picture", pictureName);
-        practiceForm.checkAddress("Address", address);
-        practiceForm.checkStateAndCity("State and City", state, city);
+        practiceForm.checkRegisterForm(registerForm);
+    }
+
+    private void fillMapForRegisterFormMap() {
+        registerForm.put("Student Name", firstName + " " + lastName);
+        registerForm.put("Student  Email", email);
+        registerForm.put("Gender", genderMale);
+        registerForm.put("Mobile", number);
+        registerForm.put("Date of Birth", birthDay + " " + birthMonth + "," + birthYear);
+        registerForm.put("Subjects", subject);
+        registerForm.put("Hobbies", sports + ", " + music);
+        registerForm.put("Picture", pictureName);
+        registerForm.put("Address", address);
+        registerForm.put("State and City", state + " " + city);
     }
 }
