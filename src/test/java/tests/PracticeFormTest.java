@@ -49,7 +49,6 @@ public class PracticeFormTest extends BaseTest {
         practiceForm.selectCity(city);
         practiceForm.clickOnSubmitButton();
         practiceForm.formSuccessfullyFilled();
-
         practiceForm.checkRegisterForm(registerForm);
     }
 
