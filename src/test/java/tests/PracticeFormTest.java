@@ -1,5 +1,6 @@
 package tests;
 
+import com.github.javafaker.Faker;
 import settings.BaseTest;
 import org.junit.jupiter.api.Test;
 import pages.AutomationPracticeForm;
@@ -12,20 +13,21 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class PracticeFormTest extends BaseTest {
     private static final AutomationPracticeForm practiceForm = page(AutomationPracticeForm.class);
+    Faker faker = new Faker();
 
-    String firstName = "James";
-    String lastName = "Bond";
-    String email = "MI6.agent007@gmail.com";
-    String genderMale = "Male";
-    String number = "7871234567";
-    String birthYear = "1930";
+    String firstName = faker.name().firstName();
+    String lastName = faker.name().lastName();
+    String email = faker.internet().emailAddress();
+    String genderMale = faker.dog().gender();
+    String number = faker.phoneNumber().subscriberNumber(10);
+    String birthYear = String.valueOf(faker.number().numberBetween(1900, 2100));
     String birthMonth = "august";
-    String birthDay = "25";
+    String birthDay = String.valueOf(faker.number().numberBetween(1, 28));
     String subject = "English";
     String sports = "Sports";
     String music = "Music";
     String pictureName = "dart-veyder-boba-fett-kostyumy.jpg";
-    String address = "London Wellington Square, 25";
+    String address = faker.address().streetAddress();
     String state = "Uttar Pradesh";
     String city = "Agra";
 
