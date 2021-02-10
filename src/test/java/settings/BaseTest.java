@@ -13,9 +13,4 @@ public class BaseTest {
         Configuration.browserSize = "1920x1080";
         open("https://demoqa.com/");
     }
-
-    @AfterAll
-    public static void closeDriver() {
-        closeWebDriver();
-    }
 }
